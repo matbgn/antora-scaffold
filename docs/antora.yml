@@ -1,0 +1,12 @@
+name: antora_repo_name
+version: master
+prerelease: false
+title: Antora repo documentation
+asciidoc:
+  attributes:
+    source-language: asciidoc@
+    xrefstyle: short@
+    listing-caption: Example@
+    example-caption: false
+nav:
+- modules/ROOT/nav.adoc
