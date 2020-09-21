@@ -5,7 +5,7 @@
     "first-deploy": "npm i && npm run add-lunr && npm run init-gitignore",
     "add-lunr": "cp -r node_modules/antora-lunr/supplemental_ui ./supplemental_ui",
     "init-gitignore": "touch .gitignore && echo node_modules >> .gitignore && echo package-lock.json >> .gitignore && echo public >> .gitignore",
-    "clean": "rm -rf supplemental_ui && rm -rf public && rm -rf node_modules && rm package-lock.json && rm .gitignore",
+    "clean": "rm -rf supplemental_ui && rm -rf public && rm -rf node_modules && rm package-lock.json",
     "build": "cross-env DOCSEARCH_ENABLED=true DOCSEARCH_ENGINE=lunr DOCSEARCH_INDEX_VERSION=latest antora --generator antora-site-generator-lunr antora-playbook.yml --fetch"
   },
   "devDependencies": {
