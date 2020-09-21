@@ -1,6 +1,6 @@
 site:
   title: Local test website documentation (title)
-  url: http://localhost:5500/public/
+  url: http://localhost:5500/build/antora/public/
   start_page: antora_repo_name::index.adoc
 content:
   edit_url: '{web_url}/blob/{refname}/{path}'

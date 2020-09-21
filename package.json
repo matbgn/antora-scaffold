@@ -1,14 +1,19 @@
 {
   "description": "Antora Lunr Pipeline Extension",
   "scripts": {
-    "init-tools": "npm i -g @antora/cli @antora/site-generator-default cross-env && npm run first-deploy",
-    "first-deploy": "npm i && npm run add-lunr && npm run init-gitignore",
+    "init": "npm i @antora/cli cross-env antora-lunr antora-site-generator-lunr && npm run first-deploy",
+    "first-deploy": "npm run add-lunr && npm run init-gitignore && npm run init-gitlab-ci && npm run build",
     "add-lunr": "cp -r node_modules/antora-lunr/supplemental_ui ./supplemental_ui",
-    "init-gitignore": "touch .gitignore && echo node_modules >> .gitignore && echo package-lock.json >> .gitignore && echo public >> .gitignore",
-    "clean": "rm -rf supplemental_ui && rm -rf public && rm -rf node_modules && rm package-lock.json",
+    "init-gitignore": "touch .gitignore && echo node_modules >> .gitignore && echo package-lock.json >> .gitignore && echo build >> .gitignore",
+    "init-gitlab-ci": "touch .gitlab-ci.yml && echo pages: >> .gitlab-ci.yml && echo '  stage: deploy' >> .gitlab-ci.yml && echo '  script:' >> .gitlab-ci.yml && echo '    - mkdir .public' >> .gitlab-ci.yml && echo '    - cp -r build/antora/public .public' >> .gitlab-ci.yml && echo '    - mv .public public' >> .gitlab-ci.yml && echo '  artifacts:' >> .gitlab-ci.yml && echo '    paths:' >> .gitlab-ci.yml && echo '      - public' >> .gitlab-ci.yml && echo '  only:' >> .gitlab-ci.yml && echo '    - master' >> .gitlab-ci.yml",
+    "clean": "rm -rf supplemental_ui && rm -rf build",
+    "wipe": "npm run clean && rm .gitignore && rm .gitlab-ci.yml && rm -rf node_modules && rm package-lock.json",
     "build": "cross-env DOCSEARCH_ENABLED=true DOCSEARCH_ENGINE=lunr DOCSEARCH_INDEX_VERSION=latest antora --generator antora-site-generator-lunr antora-playbook.yml --fetch"
   },
   "devDependencies": {
-    "antora-site-generator-lunr": "latest"
+    "@antora/cli": "latest",
+    "antora-lunr": "latest",
+    "antora-site-generator-lunr": "latest",
+    "cross-env": "latest"
   }
 }

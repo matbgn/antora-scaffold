@@ -8,14 +8,48 @@ endif::[]
 
 = Antora
 
-Instruction to build all modules of the local web version (Antora):
+IMPORTANT: The commands below are based on a bash shell, so keep attention to run those on it!
+
+== First deploy
+
+To start with the scaffold, simply type those following commands:
+
+```
+npm run init
+```
+
+After this, you will access the site locally (via your own LiveServer) in the directory:
+```
+\build\antora\public\index.html
+```
+
+== Future builds
+
+Then afterwards to build all modules of the local web version (Antora) you just have to run:
 ```
 npm run build
 ```
 
-After building this way, it is possible to access the site locally (via LiveServer) in the directory:
+== Clean your repository for local test purpose only
+
+You can wipe all following content by running the command below:
+
+- supplemental_ui 
+- build 
+
 ```
-\build\antora\public\index.html
+npm run clean
+```
+
+For a full wiping concerning those documents also run the command below:
+
+- .gitignore 
+- .gitlab-ci.yml
+- package-lock.json
+- node_modules 
+
+```
+npm run wipe
 ```
 
 == Adoc and confluence
