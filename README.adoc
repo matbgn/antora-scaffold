@@ -1,0 +1,33 @@
+ifdef::env-github[]
+:tip-caption: :bulb:
+:note-caption: :information_source:
+:important-caption: :heavy_exclamation_mark:
+:caution-caption: :fire:
+:warning-caption: :warning:
+endif::[]
+
+= Antora
+
+Instruction to build all modules of the local web version (Antora):
+```
+npm run build
+```
+
+After building this way, it is possible to access the site locally (via LiveServer) in the directory:
+```
+\build\antora\public\index.html
+```
+
+== Adoc and confluence
+
+Instruction to build one of the modules of the transferable version in the Confluences pages:
+
+```
+npm run --silent confluence --location=docs/modules/user-nborgognon
+```
+
+After building up in this way, the pages as well as the tree structure (and assets) to be transferred to Confluence are available in the directory: 
+
+```
+\build\confluence\target\asciidoc-confluence-publisher\assets\[no de build]
+```
