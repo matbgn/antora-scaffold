@@ -14,5 +14,5 @@ ui:
     snapshot: true
   supplemental_files: ./supplemental_ui
 output:
-  dir: ./public
+  dir: ./build/antora/public
 
